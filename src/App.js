@@ -3,25 +3,25 @@ import { useEffect, useState } from "react";
 import './App.css'
 import searchIcon from './search.svg'
 import MovieCard from './MovieCard'
-import { demoData } from './api'
+import { demoData } from './api' // for development only
 
-const log = console.log
-const api_key =  'a4a72ba3'
+const api_key =  '' // get free api key from -> https://ombd.com/apikey
 const API_URL = `https://www.omdbapi.com?apikey=${api_key}`
 
 
 const App = () => {
-    const [movies, setMovies] = useState(demoData)
+    const [movies, setMovies] = useState(demoData)  // for development only
+    // const [movies, setMovies] = useState([]) // uncomment for production only
     const [searchTerm, setSearchTerm] = useState('')
     
     const searchMovies = async (title) => {
         const res = await fetch(`${API_URL}&s=${title}`)
         const data = await res.json()
-        // setMovies(data.Search)
+        // setMovies(data.Search) // uncomment for production only
     } 
     
     useEffect(() => {
-        // searchMovies('Batman')
+        // searchMovies('Batman') // uncomment for production only
     }, [])
 
     return (
